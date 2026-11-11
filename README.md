@@ -1,468 +1,197 @@
 <div align="center">
 
+# 🎬 ReelTime
 
+### Discover your next favorite movie.
 
-\# 🎬 ReelTime
+A full-stack movie discovery application built with React, Spring Boot, and MongoDB.
 
-
-
-\### Discover your next favorite movie.
-
-
-
-A modern full-stack movie application built with a React client, a Spring Boot API, and MongoDB-powered movie data.
-
-
-
-\[!\[GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github\&logoColor=white)](https://github.com/zynfaria/full-stack-movie-project)
-
-\[!\[React](https://img.shields.io/badge/React-18-61DAFB?logo=react\&logoColor=white)](https://react.dev/)
-
-\[!\[Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.1-6DB33F?logo=springboot\&logoColor=white)](https://spring.io/projects/spring-boot)
-
-\[!\[MongoDB](https://img.shields.io/badge/MongoDB-Database-47A248?logo=mongodb\&logoColor=white)](https://www.mongodb.com/)
-
-\[!\[Java](https://img.shields.io/badge/Java-20-ED8B00?logo=openjdk\&logoColor=white)](https://www.java.com/)
-
-
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github&logoColor=white)](https://github.com/zynfaria/full-stack-movie-project)
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)](https://react.dev/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.1-6DB33F?logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Database-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Java](https://img.shields.io/badge/Java-20-ED8B00?logo=openjdk&logoColor=white)](https://www.java.com/)
 
 </div>
 
+---
 
+## ✨ Product previews
 
-\---
+A cinematic movie-browsing experience, paired with a dashboard concept for managing a movie catalog.
 
+| Homepage | Admin dashboard concept |
+|:---:|:---:|
+| ![ReelTime homepage concept preview](docs/images/homepage-preview.svg) | ![ReelTime admin dashboard concept preview](docs/images/admin-dashboard-preview.svg) |
 
+> **Note:** These are illustrative UI concept previews created for the README, not screenshots of running application pages. The repository currently focuses on the movie discovery app; the admin dashboard is a visual concept.
 
-\## Overview
+---
 
+## Overview
 
+ReelTime lets users browse a collection of films, view movie details, watch trailers, and submit reviews. The project brings together:
 
-ReelTime is a movie discovery app where users can browse a collection of films, view movie details, watch trailers, and submit reviews. The project combines:
+- A React front end for a cinematic browsing experience
+- A Java + Spring Boot REST API for movie and review operations
+- MongoDB for persistent movie and review data
 
+This repository is a full-stack learning and showcase project combining user-facing UI with backend functionality.
 
-
-\- A React front-end for a cinematic browsing experience
-
-\- A Java + Spring Boot REST API for movie and review management
-
-\- MongoDB for structured data persistence
-
-
-
-This repository is designed as a full-stack learning and showcase project, blending UI design with backend functionality.
-
-
-
-\---
-
-
-
-\## Tech Stack
-
-
+## Tech stack
 
 | Layer | Technology |
-
 | --- | --- |
-
-| Front-end | React 18, React Router, Axios, Bootstrap, Material UI |
-
-| Back-end | Java 20, Spring Boot 3.1, Spring Web |
-
+| Front end | React 18, React Router, Axios, Bootstrap, Material UI |
+| Back end | Java 20, Spring Boot 3.1, Spring Web |
 | Database | MongoDB |
+| Build tools | npm, Maven |
+| Environment config | Java properties + environment variables |
 
-| Build Tools | npm, Maven |
+## Features
 
-| Environment Config | Java properties + environment variables |
+- Browse a curated movie collection
+- View detailed movie information
+- Watch movie trailers
+- Submit and store user reviews
+- REST API for movie and review operations
+- MongoDB integration for persistent film data
 
-
-
-\---
-
-
-
-\## Project Structure
-
-
+## Project structure
 
 ```text
-
 full-stack-movie-project/
-
 ├── back-end/
-
 │   └── movie-client/
-
 │       └── movie-gold-v1/          # React movie web app
-
-│
-
 ├── front-end/
-
 │   └── movies/                     # Spring Boot API
-
 │       └── src/
-
 │           ├── main/
-
 │           └── test/
-
-│
-
-├── README.md
-
-└── .gitignore
-
+├── docs/
+│   └── images/                     # README preview artwork
+└── README.md
 ```
 
+> The current repository layout places the React client under `back-end/` and the Java backend under `front-end/`.
 
+## Getting started
 
-> Note: The current repo layout places the React client under `back-end/` and the Java backend under `front-end/`.
+### Prerequisites
 
+- Node.js and npm
+- Java 20
+- MongoDB access configured
+- Git
 
-
-\---
-
-
-
-\## Features
-
-
-
-\- Browse a curated movie collection
-
-\- View detailed movie information
-
-\- Watch movie trailers
-
-\- Submit and store user reviews
-
-\- REST API for movie and review operations
-
-\- MongoDB integration for persistent film data
-
-
-
-\---
-
-
-
-\## Prerequisites
-
-
-
-Before you begin, make sure you have:
-
-
-
-\- Node.js and npm installed
-
-\- Java 20 installed
-
-\- MongoDB access configured
-
-\- A terminal or IDE with Git support
-
-
-
-\---
-
-
-
-\## Environment Setup
-
-
+### Configure MongoDB
 
 The backend reads these environment variables for MongoDB connectivity:
 
-
-
-```bash
-
-MONGO\_DATABASE
-
-MONGO\_USER
-
-MONGO\_PASSWORD
-
-MONGO\_CLUSTER
-
-```
-
-
-
-They are configured in:
-
-
-
 ```text
-
-front-end/movies/src/main/resources/application.properties
-
+MONGO_DATABASE
+MONGO_USER
+MONGO_PASSWORD
+MONGO_CLUSTER
 ```
 
-
-
-Example configuration pattern:
-
-
+They are referenced in `front-end/movies/src/main/resources/application.properties`. Example configuration:
 
 ```properties
-
-spring.data.mongodb.database=${MONGO\_DATABASE}
-
-spring.data.mongodb.uri=mongodb+srv://${MONGO\_USER}:${MONGO\_PASSWORD}@${MONGO\_CLUSTER}
-
+spring.data.mongodb.database=${MONGO_DATABASE}
+spring.data.mongodb.uri=mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_CLUSTER}
 ```
 
+Keep your credentials private; do not hardcode them in the repository.
 
-
-Make sure to keep your credentials private and do not hardcode them into the repository.
-
-
-
-\---
-
-
-
-\## Running the Application
-
-
-
-\### 1) Start the backend API
-
-
+### Run the backend API
 
 ```bash
-
 cd front-end/movies
-
 ./mvnw spring-boot:run
-
 ```
 
+On Windows:
 
-
-For Windows:
-
-
-
-```bash
-
-cd front-end\\movies
-
+```bat
+cd front-end\movies
 mvnw.cmd spring-boot:run
-
 ```
 
+The API runs at `http://localhost:8080`.
 
+### Run the React client
 
-The API runs on:
-
-
-
-```text
-
-http://localhost:8080
-
-```
-
-
-
-\---
-
-
-
-\### 2) Start the React client
-
-
-
-Open a second terminal:
-
-
+In a second terminal:
 
 ```bash
-
 cd back-end/movie-client/movie-gold-v1
-
 npm install
-
 npm start
-
 ```
 
+The client runs at `http://localhost:3000` and communicates with the backend at `http://localhost:8080`.
 
+## API
 
-The app should run at:
-
-
-
-```text
-
-http://localhost:3000
-
-```
-
-
-
-The client is set to communicate with the backend at:
-
-
-
-```text
-
-http://localhost:8080
-
-```
-
-
-
-\---
-
-
-
-\## API Endpoints
-
-
-
-Base URL:
-
-
-
-```text
-
-http://localhost:8080/api/v1
-
-```
-
-
+Base URL: `http://localhost:8080/api/v1`
 
 | Method | Endpoint | Description |
-
 | --- | --- | --- |
-
 | GET | `/movies` | Get all movies |
-
 | GET | `/movies/{imdbId}` | Get a movie by IMDb ID |
-
 | POST | `/reviews` | Create a review |
-
-
 
 Example review request:
 
-
-
 ```bash
-
-curl -X POST http://localhost:8080/api/v1/reviews \\
-
-&#x20; -H "Content-Type: application/json" \\
-
-&#x20; -d '{"reviewBody":"Great movie and smooth experience!","imdbId":"movie-id"}'
-
+curl -X POST http://localhost:8080/api/v1/reviews \
+  -H "Content-Type: application/json" \
+  -d '{"reviewBody":"Great movie and smooth experience!","imdbId":"movie-id"}'
 ```
 
+## Useful commands
 
-
-\---
-
-
-
-\## Common Commands
-
-
-
-\### Front-end (React)
+**React client**
 
 ```bash
-
 cd back-end/movie-client/movie-gold-v1
-
 npm start
-
 npm test
-
 npm run build
-
 ```
 
-
-
-\### Back-end (Spring Boot)
+**Spring Boot API**
 
 ```bash
-
 cd front-end/movies
-
 ./mvnw test
-
 ./mvnw package
-
 ./mvnw spring-boot:run
-
 ```
 
+## Future improvements
 
+- Add an `.env.example` file
+- Implement search and filtering
+- Improve review form validation
+- Add more movie detail pages and categories
+- Add production-ready deployment configuration
+- Expand automated test coverage
 
-\---
+## Contributing
 
+Contributions are welcome. Open an issue or submit a pull request with your improvements.
 
+## License
 
-\## Future Improvements
+This project currently does not specify a license. Consider adding an open-source license if you plan to share or distribute it.
 
-
-
-\- Add environment example file (`.env.example`)
-
-\- Implement search and filtering
-
-\- Improve form validation for reviews
-
-\- Add more movie detail pages and categories
-
-\- Add production-ready deployment configuration
-
-\- Expand automated test coverage
-
-
-
-\---
-
-
-
-\## Contributing
-
-
-
-Contributions are welcome. If you want to improve the app, open an issue or submit a pull request.
-
-
-
-\---
-
-
-
-\## License
-
-
-
-This project currently does not specify a license. If you plan to share or distribute it publicly, it is recommended to add an open-source license such as MIT.
-
-
-
-\---
-
-
+---
 
 <div align="center">
 
-
-
 Built for movie lovers. 🍿
 
-
-
 </div>
-
